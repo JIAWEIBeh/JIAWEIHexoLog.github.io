@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>MBEH</title>
+	<script src="./MBEH.js"></script>
+</head>
+<body>
+	<div>{pathName}</div>
+	<div>{time}</div>
+	<div style="position:absolute;top:50px">
+		<input id="dsa" b-model="pathName">
+		<input id="asd" b-model="pathName">
+		<button b-click="submit">submit</button>
+		<button b-click="clear">clear</button>
+	</div>
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		window.$scope = new _MBEH({
+			el:'body',
+			allPath:{
+				pathName:'hello world',
+				submit:function(e){
+					$scope.pathName = '值替换';
+				},
+				clear:function(e){
+					for(i in $scope){
+						if(typeof $scope[i]==='string'){
+							$scope[i] = '';
+						}
+					}
+				}
+			}
+		});
+		setInterval(() => {
+			$scope.time = $scope.contentParams.dateFormat(new Date(),'yyyy-MM-dd hh:mm:ss:S')
+		},500)
+	}
+</script>
+</html>
