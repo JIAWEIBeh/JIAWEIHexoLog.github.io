@@ -1,1 +1,1 @@
-[{"sort":1,"name":"hello","contentUrl":"text/readme.md"},{"sort":2,"name":"helloP","contentUrl":"text/0001.md"}]
+{"contentList":[{"sort":1,"name":"hello","contentUrl":"text/readme.md"},{"sort":2,"name":"hello world","contentUrl":"text/0001.md"}],"menuList":[{"sort":3,"name":"home","menuUrl":"index.html"},{"sort":4,"name":"archives","menuUrl":"KMD.html"}]}
