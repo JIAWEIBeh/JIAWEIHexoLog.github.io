@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>home</title>
+	<link href="https://cdn.bootcss.com/skeleton/2.0.4/skeleton.css" rel="stylesheet">
+	<style type="text/css">
+		.leftTop{
+			position: absolute;
+		    top: 0;
+		    right: 7px;
+		}
+		#titleList{
+			width: 80%;
+			grid-template-columns: repeat(5, calc(100% / 5));/*行 repeat函数生成三个相同的值*/
+        	grid-template-rows: repeat(5, calc(100% / 5));/*列*/
+			display: grid;
+		}
+	</style>
+	<script src="https://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.js"></script>
+	<script src="https://cdn.bootcss.com/markdown-it/4.4.0/markdown-it.min.js"></script>
+	<script>
+		/*window.searchMap = location.search.substr(1).split('&').reduce(function(r, it) {
+			var them = it.split('='); 
+			r[them[0]] = them[1]; 
+			return r;
+		}, {});*/
+		$.ajaxSetup({async: false});
+	</script>
+</head>
+<body>
+
+<div class="markdown-html">
+	<div id="titleList">
+		
+	</div>
+	<div class="content"></div>
+	<div class="leftTop">Ctrl+鼠标右键 清空</div>
+	<script>
+		$.get("page.json", function(page) {
+			page.map(item => {
+				$('#titleList').append('<div style="font-size: 20px;cursor: pointer;" id="'+('id'+item.sort)+'">'+item.name.toLocaleUpperCase()+'</div>');
+				$('#id'+item.sort).on('click',e => {
+					$.get(item.contentUrl, function(text) { 
+						$('.content').html(markdownit().render(text));
+					});
+				})
+			})
+		});
+		document.onmousedown = e => {
+			if(e.button==2&&e.ctrlKey){
+				e.preventDefault();
+				$('.content').html('');
+			}
+		}
+		/*$.get(searchMap.md, function(text) { 
+			document.write(markdownit().render(text)); 
+		});*/
+	</script>
+</div>
+
+</body>
+</html>
