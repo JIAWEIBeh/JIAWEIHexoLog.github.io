@@ -68,6 +68,17 @@ body{
 .titleListItem:hover{
 	text-decoration-line: underline;
 }
+.textLine:hover{
+    text-decoration-line: underline;
+
+}
 .contentTitleListItem:hover{
 	text-decoration-line: underline;
+}
+
+.contentCard{
+    padding: 10px;
+    border: 1px #ccc solid;
+    border-radius: 5px;
+    margin: 8px;
 }
