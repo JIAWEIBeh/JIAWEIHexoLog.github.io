@@ -1,0 +1,22 @@
+{
+  "name": "jiaweibeh.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JIAWEIBeh/jiaweibeh.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JIAWEIBeh/jiaweibeh.github.io/issues"
+  },
+  "homepage": "https://github.com/JIAWEIBeh/jiaweibeh.github.io#readme",
+  "dependencies": {
+    "iconv-lite": "^0.4.24"
+  }
+}
